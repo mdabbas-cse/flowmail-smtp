@@ -138,7 +138,7 @@ The React and TypeScript source is in `admin/src/`; PHP source is in `src/`. Bui
 
 Install dependencies with `composer install` and `pnpm install --frozen-lockfile`. Run `pnpm build` to produce `dist/admin.js` and `dist/admin.css`. The distributable plugin must include `vendor/` and `dist/`.
 
-Add the public source repository URL here once the repository has been created and published.
+Source repository: [GitHub](https://github.com/mdabbas-cse/flowmail-smtp).
 
 Database option names, the log table, encryption context, and integration hook names retain their original identifiers so existing site data and hook integrations continue to work. PHP classes now use the `FlowMailSMTP` namespace, and plugin constants use the `FLOWMAIL_SMTP_` prefix. Code that directly references the former PHP namespace or constants must update those references. Both `flowmail-smtp/v1` and the earlier REST namespace are available; new UI requests use `flowmail-smtp/v1`.
 
