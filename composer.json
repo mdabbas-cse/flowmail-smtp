@@ -1,6 +1,6 @@
 {
   "name": "flowmail-smtp/flowmail-smtp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "WordPress SMTP and email management plugin",
   "license": "GPL-2.0-or-later",
   "type": "wordpress-plugin",

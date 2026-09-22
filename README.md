@@ -3,7 +3,7 @@ Tags: smtp, email, mailer, notifications
 Requires at least: 6.2
 Requires PHP: 7.4
 Tested up to: 7.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -69,7 +69,7 @@ pnpm install --frozen-lockfile
 pnpm build
 ```
 
-Composer creates `vendor/autoload.php`; the frontend build creates `dist/admin.js` and `dist/admin.css`. Upload the built plugin as a folder named `flowmail-smtp` using the manual installation steps above. Include `flowmail-smtp.php`, `src/`, `vendor/`, `dist/`, `licenses/`, `LICENSE`, and `readme.txt`. The deployed plugin does not need `node_modules/` or the test files.
+Composer creates `vendor/autoload.php`; the frontend build creates `dist/admin.js` and `dist/admin.css`. Upload the built plugin as a folder named `flowmail-smtp` using the manual installation steps above. Include `flowmail-smtp.php`, `composer.json`, `src/`, `vendor/`, `dist/`, `licenses/`, `LICENSE`, and `readme.txt`. The deployed plugin does not need `node_modules/` or the test files.
 
 ### Configure SMTP and send a test email
 
@@ -120,12 +120,14 @@ Install development dependencies with `composer install` and `pnpm install --fro
 
 == Changelog ==
 
+= 1.0.2 =
+
+* Included the Composer manifest and public source link in the release documentation.
+
 = 1.0.1 =
 
 * Renamed the plugin to FlowMail SMTP and updated its public slug and text domain.
 * Kept existing site settings and integration hooks compatible.
-
-= 1.0.1 =
 
 * Added Custom SMTP sending through WordPress mail hooks.
 * Added provider configuration forms and encrypted credential storage.

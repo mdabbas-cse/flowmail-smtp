@@ -3,7 +3,7 @@ Tags: smtp, email, mailer, notifications
 Requires at least: 6.2
 Requires PHP: 7.4
 Tested up to: 7.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,7 +33,7 @@ Message logging, dashboard statistics, retry, and resend are planned features. T
 
 == Installation ==
 
-1. Upload the built `flowmail-smtp` directory to `/wp-content/plugins/`. The plugin package must include its `vendor/` and `dist/` folders.
+1. Upload the built `flowmail-smtp` directory to `/wp-content/plugins/`. The plugin package must include `composer.json`, `vendor/`, and `dist/`.
 2. Activate **FlowMail SMTP** from the WordPress **Plugins** screen.
 3. Open **FlowMail SMTP → Providers** and select **Custom SMTP**.
 4. Enter the SMTP host, port, and encryption settings supplied by your email service. Enable authentication and enter your username and password if required.
@@ -77,14 +77,18 @@ Install development dependencies with `composer install` and `pnpm install --fro
 
 The React and TypeScript source is in `admin/src/`; PHP source is in `src/`. Build tooling is in `package.json` and `vite.config.ts`. Run `pnpm install --frozen-lockfile` and `pnpm build` to regenerate `dist/`. Install PHP dependencies with `composer install`.
 
+Source code and build instructions: https://github.com/mdabbas-cse/flowmail-smtp
+
 == Changelog ==
+
+= 1.0.2 =
+
+* Included the Composer manifest and public source link in the release documentation.
 
 = 1.0.1 =
 
 * Renamed the plugin to FlowMail SMTP and updated its public slug and text domain.
 * Kept existing site settings and integration hooks compatible.
-
-= 1.0.1 =
 
 * Added Custom SMTP sending through WordPress mail hooks.
 * Added provider configuration forms and encrypted credential storage.
