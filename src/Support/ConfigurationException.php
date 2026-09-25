@@ -1,5 +1,5 @@
 <?php
-namespace FlowMailSMTP\Support;
+namespace TechByIt\SMTP\Support;
 
 final class ConfigurationException extends \InvalidArgumentException {
 	/** @var array<string, string> */

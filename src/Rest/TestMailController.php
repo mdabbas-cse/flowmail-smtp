@@ -1,7 +1,7 @@
 <?php
-namespace FlowMailSMTP\Rest;
+namespace TechByIt\SMTP\Rest;
 
-use FlowMailSMTP\Mail\TestMailService;
+use TechByIt\SMTP\Mail\TestMailService;
 
 final class TestMailController {
 	private $service;
@@ -12,7 +12,7 @@ final class TestMailController {
 	public function can_manage(): bool {
 		return current_user_can( 'manage_options' ); }
 	public function register_routes(): void {
-		foreach ( array( 'flowmail-smtp/v1', 'mailflow-smtp/v1' ) as $namespace ) {
+		foreach ( array( 'techbyit-smtp/v1', 'flowmail-smtp/v1', 'mailflow-smtp/v1' ) as $namespace ) {
 			register_rest_route(
 				$namespace,
 				'/test-email',

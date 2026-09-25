@@ -1,7 +1,7 @@
 <?php
-namespace FlowMailSMTP\Rest;
+namespace TechByIt\SMTP\Rest;
 
-use FlowMailSMTP\Support\ConfigurationException;
+use TechByIt\SMTP\Support\ConfigurationException;
 
 final class ApiResponse {
 	public static function success( $data ): \WP_REST_Response {

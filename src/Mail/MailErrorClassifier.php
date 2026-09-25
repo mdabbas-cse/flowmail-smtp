@@ -1,5 +1,5 @@
 <?php
-namespace FlowMailSMTP\Mail;
+namespace TechByIt\SMTP\Mail;
 
 /** Maps PHPMailer diagnostics to fixed, credential-safe public errors. */
 final class MailErrorClassifier {

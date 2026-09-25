@@ -1,5 +1,5 @@
 <?php
-namespace FlowMailSMTP\Mail;
+namespace TechByIt\SMTP\Mail;
 
 final class TransportSelection {
 	private $provider;

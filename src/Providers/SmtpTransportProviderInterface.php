@@ -1,5 +1,5 @@
 <?php
-namespace FlowMailSMTP\Providers;
+namespace TechByIt\SMTP\Providers;
 
 interface SmtpTransportProviderInterface extends SendingProviderInterface {
 	/** @return array<string, mixed> Validated PHPMailer SMTP configuration. */

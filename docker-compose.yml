@@ -1,5 +1,5 @@
 x-development-image: &development-image
-  image: flowmail-smtp-development
+  image: techbyit-smtp-development
   build:
     context: .
     target: development
@@ -10,7 +10,7 @@ x-development-image: &development-image
 x-tooling: &tooling
   <<: *development-image
   user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
-  working_dir: /var/www/html/wp-content/plugins/flowmail-smtp
+  working_dir: /var/www/html/wp-content/plugins/techbyit-smtp
   init: true
   environment:
     COMPOSER_HOME: /tmp/composer
@@ -18,10 +18,10 @@ x-tooling: &tooling
     XDG_DATA_HOME: /tmp/data
     CI: "true"
   volumes:
-    - ./:/var/www/html/wp-content/plugins/flowmail-smtp
-    - vendor_data:/var/www/html/wp-content/plugins/flowmail-smtp/vendor
-    - node_modules_data:/var/www/html/wp-content/plugins/flowmail-smtp/node_modules
-    - dist_data:/var/www/html/wp-content/plugins/flowmail-smtp/dist
+    - ./:/var/www/html/wp-content/plugins/techbyit-smtp
+    - vendor_data:/var/www/html/wp-content/plugins/techbyit-smtp/vendor
+    - node_modules_data:/var/www/html/wp-content/plugins/techbyit-smtp/node_modules
+    - dist_data:/var/www/html/wp-content/plugins/techbyit-smtp/dist
 
 services:
 
@@ -60,9 +60,9 @@ services:
         define('WP_ENVIRONMENT_TYPE', 'local');
     volumes:
       - wordpress_data:/var/www/html
-      - ./:/var/www/html/wp-content/plugins/flowmail-smtp
-      - vendor_data:/var/www/html/wp-content/plugins/flowmail-smtp/vendor
-      - dist_data:/var/www/html/wp-content/plugins/flowmail-smtp/dist
+      - ./:/var/www/html/wp-content/plugins/techbyit-smtp
+      - vendor_data:/var/www/html/wp-content/plugins/techbyit-smtp/vendor
+      - dist_data:/var/www/html/wp-content/plugins/techbyit-smtp/dist
     depends_on:
       db:
         condition: service_healthy

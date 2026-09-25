@@ -1,7 +1,7 @@
 <?php
-namespace FlowMailSMTP\Providers\Builtin;
+namespace TechByIt\SMTP\Providers\Builtin;
 
-use FlowMailSMTP\Providers\SchemaProvider;
+use TechByIt\SMTP\Providers\SchemaProvider;
 
 final class GoogleWorkspaceProvider extends SchemaProvider {
 	protected function definition(): array {

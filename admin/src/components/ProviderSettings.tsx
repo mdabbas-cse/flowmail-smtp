@@ -65,7 +65,7 @@ export function ProviderSettings({ provider, settings, onUpdate }: {
   }
 
   const oauth = provider.authentication === 'oauth2';
-  return <section className="flowmail-smtp-card flowmail-smtp-settings-panel">
+  return <section className="techbyit-smtp-card techbyit-smtp-settings-panel">
     <h3>{provider.name}</h3><p>{provider.description}</p>
     {oauth && <div className="notice notice-info"><p>OAuth authorization is not available in this phase. Saving client credentials does not connect the account.</p></div>}
     {!provider.sending_supported && <div className="notice notice-info"><p>This provider can be configured, but its sending transport is not available yet.</p></div>}
@@ -75,9 +75,9 @@ export function ProviderSettings({ provider, settings, onUpdate }: {
         error={errors[field.name]} onChange={(value) => setDraft((current) => ({ ...current, [field.name]: value }))} />)}
       <button type="submit" className="button button-primary" disabled={busy}>{busy ? 'Saving…' : 'Save Settings'}</button>
     </form>
-    <div className="flowmail-smtp-actions">
+    <div className="techbyit-smtp-actions">
       <button type="button" className="button" onClick={activate} disabled={busy || !provider.sending_supported || !settings.configured || settings.active || (oauth && settings.authorization.status !== 'connected')}>Set as Active Provider</button>
-      {settings.active && <span className="flowmail-smtp-meta">Active provider</span>}
+      {settings.active && <span className="techbyit-smtp-meta">Active provider</span>}
       {oauth && <button type="button" className="button" disabled title="OAuth authorization will be implemented in a later phase">Connect (later phase)</button>}
     </div>
     {message && <p role="status">{message}</p>}

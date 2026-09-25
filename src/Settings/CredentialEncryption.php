@@ -1,5 +1,5 @@
 <?php
-namespace FlowMailSMTP\Settings;
+namespace TechByIt\SMTP\Settings;
 
 final class CredentialEncryption {
 	private const CIPHER = 'aes-256-gcm';

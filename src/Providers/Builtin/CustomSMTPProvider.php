@@ -1,8 +1,8 @@
 <?php
-namespace FlowMailSMTP\Providers\Builtin;
+namespace TechByIt\SMTP\Providers\Builtin;
 
-use FlowMailSMTP\Providers\SchemaProvider;
-use FlowMailSMTP\Providers\SmtpTransportProviderInterface;
+use TechByIt\SMTP\Providers\SchemaProvider;
+use TechByIt\SMTP\Providers\SmtpTransportProviderInterface;
 
 final class CustomSMTPProvider extends SchemaProvider implements SmtpTransportProviderInterface {
 	public function smtp_configuration( array $values ): array {

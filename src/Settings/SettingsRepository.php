@@ -1,7 +1,7 @@
 <?php
-namespace FlowMailSMTP\Settings;
+namespace TechByIt\SMTP\Settings;
 
-use FlowMailSMTP\Support\ConfigurationException;
+use TechByIt\SMTP\Support\ConfigurationException;
 
 final class SettingsRepository {
 	public const OPTION = 'mailflow_smtp_settings';

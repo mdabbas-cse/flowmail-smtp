@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 require dirname(__DIR__, 2) . '/vendor/autoload.php';
 
-use FlowMailSMTP\Database\Installer;
-use FlowMailSMTP\Rest\BootstrapController;
+use TechByIt\SMTP\Database\Installer;
+use TechByIt\SMTP\Rest\BootstrapController;
 
 if (!function_exists('current_user_can')) {
     function current_user_can(string $capability): bool {
@@ -12,7 +12,7 @@ if (!function_exists('current_user_can')) {
     }
 }
 
-define('FLOWMAIL_SMTP_VERSION', '1.0.2');
+define('TECHBYIT_SMTP_VERSION', '1.0.2');
 $controller = new BootstrapController();
 $GLOBALS['test_can_manage'] = false;
 if ($controller->can_manage()) {
@@ -31,14 +31,14 @@ function register_rest_route($namespace, $route, $args): void {
     $GLOBALS['test_routes'][$namespace][] = $route;
 }
 foreach (array(
-    \FlowMailSMTP\Rest\BootstrapController::class,
-    \FlowMailSMTP\Rest\ProviderController::class,
-    \FlowMailSMTP\Rest\SettingsController::class,
-    \FlowMailSMTP\Rest\TestMailController::class,
+    \TechByIt\SMTP\Rest\BootstrapController::class,
+    \TechByIt\SMTP\Rest\ProviderController::class,
+    \TechByIt\SMTP\Rest\SettingsController::class,
+    \TechByIt\SMTP\Rest\TestMailController::class,
 ) as $class) {
     (new ReflectionClass($class))->newInstanceWithoutConstructor()->register_routes();
 }
-if ($GLOBALS['test_routes']['flowmail-smtp/v1'] !== $GLOBALS['test_routes']['mailflow-smtp/v1'] || count($GLOBALS['test_routes']['flowmail-smtp/v1']) !== 7) {
+if ($GLOBALS['test_routes']['techbyit-smtp/v1'] !== $GLOBALS['test_routes']['flowmail-smtp/v1'] || $GLOBALS['test_routes']['techbyit-smtp/v1'] !== $GLOBALS['test_routes']['mailflow-smtp/v1'] || count($GLOBALS['test_routes']['techbyit-smtp/v1']) !== 7) {
     throw new RuntimeException('New and legacy REST routes differ.');
 }
 echo "REST namespace compatibility tests passed.\n";

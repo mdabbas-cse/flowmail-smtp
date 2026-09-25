@@ -1,5 +1,5 @@
 <?php
-namespace FlowMailSMTP\Providers;
+namespace TechByIt\SMTP\Providers;
 
 interface ProviderInterface {
 	public function id(): string;

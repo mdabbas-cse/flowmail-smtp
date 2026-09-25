@@ -1,8 +1,8 @@
 <?php
-namespace FlowMailSMTP\Rest;
+namespace TechByIt\SMTP\Rest;
 
-use FlowMailSMTP\Providers\ProviderManager;
-use FlowMailSMTP\Support\ConfigurationException;
+use TechByIt\SMTP\Providers\ProviderManager;
+use TechByIt\SMTP\Support\ConfigurationException;
 
 final class ProviderController {
 	private $manager;
@@ -20,7 +20,7 @@ final class ProviderController {
 	}
 
 	public function register_routes(): void {
-		foreach ( array( 'flowmail-smtp/v1', 'mailflow-smtp/v1' ) as $namespace ) {
+		foreach ( array( 'techbyit-smtp/v1', 'flowmail-smtp/v1', 'mailflow-smtp/v1' ) as $namespace ) {
 			register_rest_route(
 				$namespace,
 				'/providers',

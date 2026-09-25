@@ -13,7 +13,7 @@ function useBootstrap() {
   useEffect(() => {
     let active = true;
     getBootstrap().then((value) => { if (active) setData(value); }).catch((reason: unknown) => {
-      if (active) setError(reason instanceof Error ? reason.message : 'Could not load FlowMail SMTP data.');
+      if (active) setError(reason instanceof Error ? reason.message : 'Could not load TechByIt SMTP data.');
     });
     return () => { active = false; };
   }, []);
@@ -21,7 +21,7 @@ function useBootstrap() {
 }
 
 function Placeholder({ title, description }: { title: string; description: string }) {
-  return <div className="flowmail-smtp-card"><h2>{title}</h2><p>{description}</p><span className="flowmail-smtp-pill">Coming in a later phase</span></div>;
+  return <div className="techbyit-smtp-card"><h2>{title}</h2><p>{description}</p><span className="techbyit-smtp-pill">Coming in a later phase</span></div>;
 }
 
 function Content({ page }: { page: Page }) {
@@ -35,12 +35,12 @@ export function App({ slug }: { slug: string }) {
   const page = pageFromSlug(slug);
   const { data, error } = useBootstrap();
   const heading = pages.find((item) => item.id === page)?.label ?? 'Dashboard';
-  return <div className="flowmail-smtp-admin">
-    <header className="flowmail-smtp-header"><div><h1>FlowMail SMTP</h1><p>Email delivery and activity for this WordPress site</p></div>{data && <span>Version {data.version}</span>}</header>
-    <nav className="flowmail-smtp-nav" aria-label="FlowMail SMTP pages">{pages.map((item) => <a key={item.id} aria-current={page === item.id ? 'page' : undefined} href={`admin.php?page=${item.slug}`}>{item.label}</a>)}</nav>
-    <main><h2 className="flowmail-smtp-page-title">{heading}</h2>
+  return <div className="techbyit-smtp-admin">
+    <header className="techbyit-smtp-header"><div><h1>TechByIt SMTP</h1><p>Email delivery and activity for this WordPress site</p></div>{data && <span>Version {data.version}</span>}</header>
+    <nav className="techbyit-smtp-nav" aria-label="TechByIt SMTP pages">{pages.map((item) => <a key={item.id} aria-current={page === item.id ? 'page' : undefined} href={`admin.php?page=${item.slug}`}>{item.label}</a>)}</nav>
+    <main><h2 className="techbyit-smtp-page-title">{heading}</h2>
       {error && <div className="notice notice-error" role="alert"><p>{error}</p></div>}
-      {!data && !error && <p role="status">Loading FlowMail SMTP…</p>}
+      {!data && !error && <p role="status">Loading TechByIt SMTP…</p>}
       {data && <Content page={page} />}
     </main>
   </div>;

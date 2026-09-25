@@ -1,5 +1,5 @@
 <?php
-namespace FlowMailSMTP\Providers;
+namespace TechByIt\SMTP\Providers;
 
 abstract class SchemaProvider implements ProviderInterface {
 	/** @return array<string, mixed> */

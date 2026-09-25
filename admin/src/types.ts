@@ -55,6 +55,6 @@ export interface GeneralSettings {
 
 declare global {
   interface Window {
-    FlowMailSMTPConfig?: { restUrl: string; nonce: string };
+    TechByItSMTPConfig?: { restUrl: string; nonce: string };
   }
 }

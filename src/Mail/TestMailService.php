@@ -1,5 +1,5 @@
 <?php
-namespace FlowMailSMTP\Mail;
+namespace TechByIt\SMTP\Mail;
 
 final class TestMailService {
 	private $manager;
@@ -13,8 +13,8 @@ final class TestMailService {
 		if ( $selection->passthrough() || ! $selection->success() ) {
 			return new MailResult( false, $selection->provider(), null, $selection->passthrough() ? 'provider_not_configured' : $selection->error_code(), 'An active sending provider is required.' );
 		}
-		$subject = null !== $subject && '' !== $subject ? $subject : 'FlowMail SMTP Test Email';
-		$message = null !== $message && '' !== $message ? $message : 'This is a test email sent using FlowMail SMTP.';
+		$subject = null !== $subject && '' !== $subject ? $subject : 'TechByIt SMTP Test Email';
+		$message = null !== $message && '' !== $message ? $message : 'This is a test email sent using TechByIt SMTP.';
 		$sent    = wp_mail( $to, $subject, $message );
 		$result  = $this->integration->last_result();
 		if ( $result ) {

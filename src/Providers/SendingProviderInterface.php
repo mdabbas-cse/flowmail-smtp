@@ -1,5 +1,5 @@
 <?php
-namespace FlowMailSMTP\Providers;
+namespace TechByIt\SMTP\Providers;
 
 /** Marker for providers with an implemented sending transport. */
 interface SendingProviderInterface {}

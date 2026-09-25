@@ -1,9 +1,9 @@
 <?php
-namespace FlowMailSMTP\Providers;
+namespace TechByIt\SMTP\Providers;
 
-use FlowMailSMTP\Settings\ProviderSettingsRepository;
-use FlowMailSMTP\Settings\SettingsRepository;
-use FlowMailSMTP\Support\ConfigurationException;
+use TechByIt\SMTP\Settings\ProviderSettingsRepository;
+use TechByIt\SMTP\Settings\SettingsRepository;
+use TechByIt\SMTP\Support\ConfigurationException;
 
 final class ProviderManager {
 	private $registry;

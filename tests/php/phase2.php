@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-use FlowMailSMTP\Providers\ProviderManager;
-use FlowMailSMTP\Providers\ProviderRegistry;
-use FlowMailSMTP\Settings\CredentialEncryption;
-use FlowMailSMTP\Settings\ProviderSettingsRepository;
-use FlowMailSMTP\Settings\SettingsRepository;
-use FlowMailSMTP\Support\ConfigurationException;
+use TechByIt\SMTP\Providers\ProviderManager;
+use TechByIt\SMTP\Providers\ProviderRegistry;
+use TechByIt\SMTP\Settings\CredentialEncryption;
+use TechByIt\SMTP\Settings\ProviderSettingsRepository;
+use TechByIt\SMTP\Settings\SettingsRepository;
+use TechByIt\SMTP\Support\ConfigurationException;
 
 $GLOBALS['test_options'] = array();
 function get_option( $name, $default = false ) {
@@ -68,7 +68,7 @@ try {
 
 $settings->save_general(
 	array(
-		'from_name'  => 'FlowMail',
+		'from_name'  => 'TechByIt SMTP',
 		'from_email' => 'sender@example.com',
 	)
 );

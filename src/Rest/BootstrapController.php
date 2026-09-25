@@ -1,5 +1,5 @@
 <?php
-namespace FlowMailSMTP\Rest;
+namespace TechByIt\SMTP\Rest;
 
 final class BootstrapController {
     public function register(): void {
@@ -7,7 +7,7 @@ final class BootstrapController {
     }
 
     public function register_routes(): void {
-        foreach (array('flowmail-smtp/v1', 'mailflow-smtp/v1') as $namespace) {
+        foreach (array('techbyit-smtp/v1', 'flowmail-smtp/v1', 'mailflow-smtp/v1') as $namespace) {
             register_rest_route($namespace, '/bootstrap', array(
                 'methods' => 'GET',
                 'callback' => array($this, 'get_bootstrap'),
@@ -22,7 +22,7 @@ final class BootstrapController {
 
     public function get_bootstrap(): array {
         return array(
-            'version' => FLOWMAIL_SMTP_VERSION,
+            'version' => TECHBYIT_SMTP_VERSION,
         );
     }
 }

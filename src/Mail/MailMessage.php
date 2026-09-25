@@ -1,5 +1,5 @@
 <?php
-namespace FlowMailSMTP\Mail;
+namespace TechByIt\SMTP\Mail;
 
 /** A safe view of wp_mail arguments for hooks and future logging. */
 final class MailMessage {

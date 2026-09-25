@@ -1,4 +1,4 @@
-=== FlowMail SMTP ===
+=== TechByIt SMTP ===
 Tags: smtp, email, mailer, notifications
 Requires at least: 6.2
 Requires PHP: 7.4
@@ -11,9 +11,9 @@ Send WordPress email through your SMTP server, configure a default sender, and c
 
 == Description ==
 
-FlowMail SMTP sends WordPress site email through a configured SMTP server. It works with messages sent using WordPress's `wp_mail()` function, including notifications from plugins that use that function.
+TechByIt SMTP sends WordPress site email through a configured SMTP server. It works with messages sent using WordPress's `wp_mail()` function, including notifications from plugins that use that function.
 
-From the FlowMail SMTP admin menu, you can configure your server, choose the active provider, set a default sender, and send a test email.
+From the TechByIt SMTP admin menu, you can configure your server, choose the active provider, set a default sender, and send a test email.
 
 = Features =
 
@@ -42,22 +42,22 @@ Message logging, dashboard statistics, retry, and resend are planned features. T
 
 ### Install the ZIP through WordPress
 
-1. Download the built FlowMail SMTP ZIP, named `flowmail-smtp-<version>.zip`.
+1. Download the built TechByIt SMTP ZIP, named `techbyit-smtp-<version>.zip`.
 2. Sign in to your WordPress admin dashboard.
 3. Open **Plugins → Add New → Upload Plugin**.
 4. Select the ZIP file and click **Install Now**. Upload the ZIP without extracting it.
 5. Once installation finishes, click **Activate Plugin**.
-6. Open **FlowMail SMTP** in the WordPress admin menu and follow the configuration steps below.
+6. Open **TechByIt SMTP** in the WordPress admin menu and follow the configuration steps below.
 
 The built ZIP includes the required PHP autoloader and compiled admin assets. Composer, Node.js, and pnpm are only needed when building from source.
 
 ### Install manually with SFTP or a hosting file manager
 
 1. Extract the built ZIP on your computer.
-2. Upload its `flowmail-smtp` folder to your site's `wp-content/plugins/` directory.
-3. Check that the plugin entry file is at `wp-content/plugins/flowmail-smtp/flowmail-smtp.php`. Avoid placing the plugin inside a second nested `flowmail-smtp` folder.
+2. Upload its `techbyit-smtp` folder to your site's `wp-content/plugins/` directory.
+3. Check that the plugin entry file is at `wp-content/plugins/techbyit-smtp/techbyit-smtp.php`. Avoid placing the plugin inside a second nested `techbyit-smtp` folder.
 4. Keep the package contents together, including `src/`, `vendor/`, `dist/`, and `licenses/`.
-5. In WordPress, open **Plugins → Installed Plugins** and activate **FlowMail SMTP**.
+5. In WordPress, open **Plugins → Installed Plugins** and activate **TechByIt SMTP**.
 
 ### Build and install from source
 
@@ -69,22 +69,22 @@ pnpm install --frozen-lockfile
 pnpm build
 ```
 
-Composer creates `vendor/autoload.php`; the frontend build creates `dist/admin.js` and `dist/admin.css`. Upload the built plugin as a folder named `flowmail-smtp` using the manual installation steps above. Include `flowmail-smtp.php`, `composer.json`, `src/`, `vendor/`, `dist/`, `licenses/`, `LICENSE`, and `readme.txt`. The deployed plugin does not need `node_modules/` or the test files.
+Composer creates `vendor/autoload.php`; the frontend build creates `dist/admin.js` and `dist/admin.css`. Upload the built plugin as a folder named `techbyit-smtp` using the manual installation steps above. Include `techbyit-smtp.php`, `composer.json`, `src/`, `vendor/`, `dist/`, `licenses/`, `LICENSE`, and `readme.txt`. The deployed plugin does not need `node_modules/` or the test files.
 
 ### Configure SMTP and send a test email
 
-1. Open **FlowMail SMTP → Providers** and select **Custom SMTP**. It is currently the only provider with an implemented sending transport.
+1. Open **TechByIt SMTP → Providers** and select **Custom SMTP**. It is currently the only provider with an implemented sending transport.
 2. Enter the **SMTP Host**, **SMTP Port**, and **Encryption** mode supplied by your email service. Enable **Use authentication** and enter the **Username** and **Password** if the service requires them.
 3. Click **Save Settings**, then **Set as Active Provider**. Saving the settings alone does not activate the provider.
-4. Open **FlowMail SMTP → Settings**, set the default **From Name** and **From Email**, and save. Use a sender address your SMTP service permits.
-5. Open **FlowMail SMTP → Dashboard**, enter a recipient email address you control, and click **Send Test Email**.
+4. Open **TechByIt SMTP → Settings**, set the default **From Name** and **From Email**, and save. Use a sender address your SMTP service permits.
+5. Open **TechByIt SMTP → Dashboard**, enter a recipient email address you control, and click **Send Test Email**.
 6. Confirm the success message, then check the recipient's inbox and spam folder. A successful send means the SMTP server accepted the message; it does not guarantee inbox delivery.
 
 ### Installation troubleshooting
 
 - **Missing Composer dependencies:** confirm that `vendor/autoload.php` was uploaded. For a source installation, run the Composer command above before uploading.
 - **Missing admin assets:** confirm that `dist/admin.js` and `dist/admin.css` were uploaded. Run `pnpm build` if they are missing.
-- **No FlowMail SMTP menu:** confirm that the plugin is active and your WordPress account has permission to manage site settings.
+- **No TechByIt SMTP menu:** confirm that the plugin is active and your WordPress account has permission to manage site settings.
 - **No active provider warning:** save the Custom SMTP configuration and click **Set as Active Provider**.
 - **Test email fails:** check the returned error and verify the host, port, encryption, credentials, and allowed sender address with your SMTP service.
 
@@ -92,11 +92,11 @@ Composer creates `vendor/autoload.php`; the frontend build creates `dist/admin.j
 
 = Do I need an SMTP service? =
 
-Yes. To send through Custom SMTP, you need access to an SMTP server and its connection details. FlowMail SMTP does not provide an email account or SMTP service.
+Yes. To send through Custom SMTP, you need access to an SMTP server and its connection details. TechByIt SMTP does not provide an email account or SMTP service.
 
 = What happens when no provider is active? =
 
-WordPress keeps its usual mail behavior. FlowMail SMTP starts routing mail through Custom SMTP after you configure and activate that provider.
+WordPress keeps its usual mail behavior. TechByIt SMTP starts routing mail through Custom SMTP after you configure and activate that provider.
 
 = Can I connect Gmail, Microsoft 365, or an API provider? =
 
@@ -126,7 +126,7 @@ Install development dependencies with `composer install` and `pnpm install --fro
 
 = 1.0.1 =
 
-* Renamed the plugin to FlowMail SMTP and updated its public slug and text domain.
+* Renamed the plugin to TechByIt SMTP and updated its public slug and text domain.
 * Kept existing site settings and integration hooks compatible.
 
 * Added Custom SMTP sending through WordPress mail hooks.
@@ -140,8 +140,8 @@ The React and TypeScript source is in `admin/src/`; PHP source is in `src/`. Bui
 
 Install dependencies with `composer install` and `pnpm install --frozen-lockfile`. Run `pnpm build` to produce `dist/admin.js` and `dist/admin.css`. The distributable plugin must include `vendor/` and `dist/`.
 
-Source repository: [GitHub](https://github.com/mdabbas-cse/flowmail-smtp).
+Source repository: [GitHub](https://github.com/mdabbas-cse/techbyit-smtp).
 
-Database option names, the log table, encryption context, and integration hook names retain their original identifiers so existing site data and hook integrations continue to work. PHP classes now use the `FlowMailSMTP` namespace, and plugin constants use the `FLOWMAIL_SMTP_` prefix. Code that directly references the former PHP namespace or constants must update those references. Both `flowmail-smtp/v1` and the earlier REST namespace are available; new UI requests use `flowmail-smtp/v1`.
+Database option names, the log table, encryption context, and integration hook names retain their original identifiers so existing site data and hook integrations continue to work. PHP classes now use the `TechByIt\SMTP` namespace, and plugin constants use the `TECHBYIT_SMTP_` prefix. Code that directly references the former PHP namespace or constants must update those references. The primary `techbyit-smtp/v1` namespace and both earlier REST namespaces are available; new UI requests use `techbyit-smtp/v1`.
 
 The compiled React bundle contains React, React DOM, and Scheduler under the MIT license; their shared license text is in `licenses/react-mit.txt`.

@@ -15,15 +15,15 @@ export function TestEmailForm({ activeProvider, sending, onSend }: FormProps) {
     try { await onSend(email); setResult('Test email sent successfully.'); setFailed(false); }
     catch (reason) { setResult(reason instanceof Error ? reason.message : 'The test email could not be sent.'); setFailed(true); }
   };
-  return <section className="flowmail-smtp-card flowmail-smtp-test">
+  return <section className="techbyit-smtp-card techbyit-smtp-test">
     <h2>Test Email</h2>
-    {!activeProvider ? <div role="status"><p>No active mail provider is configured for sending.</p><a className="button" href="admin.php?page=flowmail-smtp-mailers">Configure Provider</a></div> : <>
+    {!activeProvider ? <div role="status"><p>No active mail provider is configured for sending.</p><a className="button" href="admin.php?page=techbyit-smtp-mailers">Configure Provider</a></div> : <>
       <p>Send a test email using {activeProvider}.</p>
       <form onSubmit={(event) => { void submit(event); }}>
-        <label className="flowmail-smtp-field">Recipient Email<input type="email" required value={email} onChange={(event) => setEmail(event.target.value)} autoComplete="email" /></label>
+        <label className="techbyit-smtp-field">Recipient Email<input type="email" required value={email} onChange={(event) => setEmail(event.target.value)} autoComplete="email" /></label>
         <button className="button button-primary" type="submit" disabled={sending}>{sending ? 'Sending…' : 'Send Test Email'}</button>
       </form>
-      {result && <p role={failed ? 'alert' : 'status'} className={failed ? 'flowmail-smtp-error' : ''}>{result}</p>}
+      {result && <p role={failed ? 'alert' : 'status'} className={failed ? 'techbyit-smtp-error' : ''}>{result}</p>}
     </>}
   </section>;
 }

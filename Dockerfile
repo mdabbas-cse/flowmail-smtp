@@ -24,10 +24,10 @@ RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm \
 COPY docker/php-development.ini /usr/local/etc/php/conf.d/zz-development.ini
 
 # Docker initializes the dependency volumes with these directory permissions.
-RUN mkdir -p /var/www/html/wp-content/plugins/flowmail-smtp/vendor \
-             /var/www/html/wp-content/plugins/flowmail-smtp/node_modules \
-             /var/www/html/wp-content/plugins/flowmail-smtp/dist \
-    && chown -R "${LOCAL_UID}:${LOCAL_GID}" /var/www/html/wp-content/plugins/flowmail-smtp
+RUN mkdir -p /var/www/html/wp-content/plugins/techbyit-smtp/vendor \
+             /var/www/html/wp-content/plugins/techbyit-smtp/node_modules \
+             /var/www/html/wp-content/plugins/techbyit-smtp/dist \
+    && chown -R "${LOCAL_UID}:${LOCAL_GID}" /var/www/html/wp-content/plugins/techbyit-smtp
 
 # The inherited WordPress entrypoint initializes the site in this directory.
 WORKDIR /var/www/html

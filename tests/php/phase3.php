@@ -2,19 +2,19 @@
 declare(strict_types=1);
 require __DIR__ . '/phpmailer-stub.php';
 
-use FlowMailSMTP\Mail\MailMessage;
-use FlowMailSMTP\Mail\PHPMailerConfigurator;
-use FlowMailSMTP\Mail\MailManager;
-use FlowMailSMTP\Mail\MailErrorClassifier;
+use TechByIt\SMTP\Mail\MailMessage;
+use TechByIt\SMTP\Mail\PHPMailerConfigurator;
+use TechByIt\SMTP\Mail\MailManager;
+use TechByIt\SMTP\Mail\MailErrorClassifier;
 
 $message = MailMessage::from_wp_mail( array(
 	'to' => 'one@example.test, two@example.test',
 	'subject' => 'Hello',
 	'message' => '<b>Body</b>',
 	'headers' => array( 'From: Sender <sender@example.test>', 'Cc: cc@example.test', 'Bcc: bcc@example.test', 'Reply-To: reply@example.test', 'Content-Type: text/html; charset=UTF-8' ),
-	'attachments' => array( '/tmp/flowmail-attachment.txt' ),
+	'attachments' => array( '/tmp/techbyit-attachment.txt' ),
 ) );
-if ( $message->to() !== array( 'one@example.test', 'two@example.test' ) || $message->cc() !== array( 'cc@example.test' ) || $message->bcc() !== array( 'bcc@example.test' ) || $message->reply_to() !== array( 'reply@example.test' ) || $message->content_type() !== 'text/html' || $message->charset() !== 'UTF-8' || $message->attachments() !== array( '/tmp/flowmail-attachment.txt' ) || $message->from()['email'] !== 'sender@example.test' ) {
+if ( $message->to() !== array( 'one@example.test', 'two@example.test' ) || $message->cc() !== array( 'cc@example.test' ) || $message->bcc() !== array( 'bcc@example.test' ) || $message->reply_to() !== array( 'reply@example.test' ) || $message->content_type() !== 'text/html' || $message->charset() !== 'UTF-8' || $message->attachments() !== array( '/tmp/techbyit-attachment.txt' ) || $message->from()['email'] !== 'sender@example.test' ) {
 	throw new RuntimeException( 'MailMessage normalization failed.' );
 }
 $injection = MailMessage::from_wp_mail( array( 'to' => 'one@example.test', 'subject' => 'Hi', 'message' => 'Body', 'headers' => "Cc: good@example.test\r\nBcc: bad@example.test\rInjected: yes" ) );
@@ -64,25 +64,25 @@ $settings->set_active_provider( '' );
 if ( ! $manager->active_transport()->passthrough() ) {
 	throw new RuntimeException( 'Unconfigured plugin changed WordPress mail.' );
 }
-$stored_general = $GLOBALS['test_options'][ FlowMailSMTP\Settings\SettingsRepository::OPTION ];
-$GLOBALS['test_options'][ FlowMailSMTP\Settings\SettingsRepository::OPTION ] = array( 'version' => 999 );
+$stored_general = $GLOBALS['test_options'][ TechByIt\SMTP\Settings\SettingsRepository::OPTION ];
+$GLOBALS['test_options'][ TechByIt\SMTP\Settings\SettingsRepository::OPTION ] = array( 'version' => 999 );
 if ( 'configuration_unavailable' !== $manager->active_transport()->error_code() ) {
 	throw new RuntimeException( 'Corrupt settings caused an unsafe mail failure.' );
 }
-$GLOBALS['test_options'][ FlowMailSMTP\Settings\SettingsRepository::OPTION ] = $stored_general;
+$GLOBALS['test_options'][ TechByIt\SMTP\Settings\SettingsRepository::OPTION ] = $stored_general;
 $settings->set_active_provider( 'custom_smtp' );
-$stored_providers = $GLOBALS['test_options'][ FlowMailSMTP\Settings\ProviderSettingsRepository::OPTION ];
-$GLOBALS['test_options'][ FlowMailSMTP\Settings\ProviderSettingsRepository::OPTION ]['providers']['custom_smtp']['values'] = 'corrupt';
+$stored_providers = $GLOBALS['test_options'][ TechByIt\SMTP\Settings\ProviderSettingsRepository::OPTION ];
+$GLOBALS['test_options'][ TechByIt\SMTP\Settings\ProviderSettingsRepository::OPTION ]['providers']['custom_smtp']['values'] = 'corrupt';
 if ( 'configuration_unavailable' !== $manager->active_transport()->error_code() ) {
 	throw new RuntimeException( 'Corrupt provider settings caused an unsafe mail failure.' );
 }
-$GLOBALS['test_options'][ FlowMailSMTP\Settings\ProviderSettingsRepository::OPTION ] = $stored_providers;
+$GLOBALS['test_options'][ TechByIt\SMTP\Settings\ProviderSettingsRepository::OPTION ] = $stored_providers;
 $settings->set_active_provider( '' );
-$manager_under_test = new FlowMailSMTP\Providers\ProviderManager( $registry, $provider_settings, $settings );
+$manager_under_test = new TechByIt\SMTP\Providers\ProviderManager( $registry, $provider_settings, $settings );
 $manager_under_test->save_configuration( 'sendgrid', array( 'api_key' => 'test-only-key' ) );
 try {
 	$manager_under_test->activate( 'sendgrid' );
 	throw new RuntimeException( 'Provider without a sending transport was activated.' );
-} catch ( FlowMailSMTP\Support\ConfigurationException $expected ) {
+} catch ( TechByIt\SMTP\Support\ConfigurationException $expected ) {
 }
 echo "Phase 3 mail unit tests passed.\n";

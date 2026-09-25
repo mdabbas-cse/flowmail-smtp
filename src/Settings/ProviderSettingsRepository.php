@@ -1,7 +1,7 @@
 <?php
-namespace FlowMailSMTP\Settings;
+namespace TechByIt\SMTP\Settings;
 
-use FlowMailSMTP\Providers\ProviderInterface;
+use TechByIt\SMTP\Providers\ProviderInterface;
 
 final class ProviderSettingsRepository {
 	public const OPTION = 'mailflow_smtp_provider_settings';

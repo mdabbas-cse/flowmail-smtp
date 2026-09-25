@@ -1,15 +1,15 @@
 <?php
-namespace FlowMailSMTP\Providers;
+namespace TechByIt\SMTP\Providers;
 
-use FlowMailSMTP\Providers\Builtin\AmazonSESProvider;
-use FlowMailSMTP\Providers\Builtin\BrevoProvider;
-use FlowMailSMTP\Providers\Builtin\CustomSMTPProvider;
-use FlowMailSMTP\Providers\Builtin\GmailProvider;
-use FlowMailSMTP\Providers\Builtin\GoogleWorkspaceProvider;
-use FlowMailSMTP\Providers\Builtin\MailgunProvider;
-use FlowMailSMTP\Providers\Builtin\Microsoft365Provider;
-use FlowMailSMTP\Providers\Builtin\PostmarkProvider;
-use FlowMailSMTP\Providers\Builtin\SendGridProvider;
+use TechByIt\SMTP\Providers\Builtin\AmazonSESProvider;
+use TechByIt\SMTP\Providers\Builtin\BrevoProvider;
+use TechByIt\SMTP\Providers\Builtin\CustomSMTPProvider;
+use TechByIt\SMTP\Providers\Builtin\GmailProvider;
+use TechByIt\SMTP\Providers\Builtin\GoogleWorkspaceProvider;
+use TechByIt\SMTP\Providers\Builtin\MailgunProvider;
+use TechByIt\SMTP\Providers\Builtin\Microsoft365Provider;
+use TechByIt\SMTP\Providers\Builtin\PostmarkProvider;
+use TechByIt\SMTP\Providers\Builtin\SendGridProvider;
 
 final class ProviderRegistry {
 	/** @var array<string, ProviderInterface> */

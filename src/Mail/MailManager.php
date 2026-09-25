@@ -1,8 +1,8 @@
 <?php
-namespace FlowMailSMTP\Mail;
+namespace TechByIt\SMTP\Mail;
 
-use FlowMailSMTP\Providers\ProviderManager;
-use FlowMailSMTP\Providers\SmtpTransportProviderInterface;
+use TechByIt\SMTP\Providers\ProviderManager;
+use TechByIt\SMTP\Providers\SmtpTransportProviderInterface;
 
 final class MailManager {
 	private $providers;

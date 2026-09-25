@@ -7,8 +7,8 @@ export class ApiError extends Error {
 interface Envelope<T> { success: boolean; data?: T; message?: string; errors?: Record<string, string> }
 
 export async function request<T>(path: string, method: 'GET' | 'POST' = 'GET', body?: Record<string, unknown>): Promise<T> {
-  const config = window.FlowMailSMTPConfig;
-  if (!config) throw new ApiError('FlowMail SMTP configuration is missing.');
+  const config = window.TechByItSMTPConfig;
+  if (!config) throw new ApiError('TechByIt SMTP configuration is missing.');
   const response = await fetch(new URL(path, config.restUrl), {
     method,
     credentials: 'same-origin',

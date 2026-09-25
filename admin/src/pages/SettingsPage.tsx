@@ -34,11 +34,11 @@ export function SettingsPage() {
   }
 
   if (!settings) return <p role="status">{message || 'Loading settings…'}</p>;
-  return <section className="flowmail-smtp-card flowmail-smtp-settings-panel">
+  return <section className="techbyit-smtp-card techbyit-smtp-settings-panel">
     <h3>General Settings</h3><p>These values are saved now; mail routing will be added later.</p>
     <form onSubmit={save} noValidate>
-      <div className="flowmail-smtp-field"><label htmlFor="flowmail-from-name">From Name</label><input id="flowmail-from-name" type="text" value={settings.from_name} onChange={(event) => setSettings({ ...settings, from_name: event.target.value })} /></div>
-      <div className="flowmail-smtp-field"><label htmlFor="flowmail-from-email">From Email</label><input id="flowmail-from-email" type="email" value={settings.from_email} onChange={(event) => setSettings({ ...settings, from_email: event.target.value })} />{errors.from_email && <span role="alert" className="flowmail-smtp-error">{errors.from_email}</span>}</div>
+      <div className="techbyit-smtp-field"><label htmlFor="techbyit-from-name">From Name</label><input id="techbyit-from-name" type="text" value={settings.from_name} onChange={(event) => setSettings({ ...settings, from_name: event.target.value })} /></div>
+      <div className="techbyit-smtp-field"><label htmlFor="techbyit-from-email">From Email</label><input id="techbyit-from-email" type="email" value={settings.from_email} onChange={(event) => setSettings({ ...settings, from_email: event.target.value })} />{errors.from_email && <span role="alert" className="techbyit-smtp-error">{errors.from_email}</span>}</div>
       <p>Active provider: <strong>{settings.active_provider || 'None selected'}</strong></p>
       <button type="submit" className="button button-primary" disabled={busy}>{busy ? 'Saving…' : 'Save Settings'}</button>
     </form>

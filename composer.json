@@ -1,5 +1,5 @@
 {
-  "name": "flowmail-smtp/flowmail-smtp",
+  "name": "techbyit/techbyit-smtp",
   "version": "1.0.2",
   "description": "WordPress SMTP and email management plugin",
   "license": "GPL-2.0-or-later",
@@ -11,7 +11,7 @@
   },
   "autoload": {
     "psr-4": {
-      "FlowMailSMTP\\": "src/"
+      "TechByIt\\SMTP\\": "src/"
     }
   },
   "scripts": {

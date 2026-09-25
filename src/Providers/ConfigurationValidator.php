@@ -1,7 +1,7 @@
 <?php
-namespace FlowMailSMTP\Providers;
+namespace TechByIt\SMTP\Providers;
 
-use FlowMailSMTP\Support\ConfigurationException;
+use TechByIt\SMTP\Support\ConfigurationException;
 
 final class ConfigurationValidator {
 	public function validate( array $fields, array $input, array $existing ): array {

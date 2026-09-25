@@ -1,5 +1,5 @@
 <?php
-namespace FlowMailSMTP\Database;
+namespace TechByIt\SMTP\Database;
 
 final class Installer {
     public const VERSION = '1';

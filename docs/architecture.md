@@ -1,8 +1,8 @@
-# FlowMail SMTP architecture and phased delivery
+# TechByIt SMTP architecture and phased delivery
 
 ## Product boundary
 
-FlowMail SMTP is a WordPress admin plugin for site owners. The current release routes ordinary `wp_mail()` calls through an active Custom SMTP provider. Logging, outcome inspection, retry, and resend are planned for later phases and are not available in version 1.0.2. The plugin never changes WordPress core. PHP 7.4 and WordPress 6.2 are the minimum targets.
+TechByIt SMTP is a WordPress admin plugin for site owners. The current release routes ordinary `wp_mail()` calls through an active Custom SMTP provider. Logging, outcome inspection, retry, and resend are planned for later phases and are not available in version 1.0.2. The plugin never changes WordPress core. PHP 7.4 and WordPress 6.2 are the minimum targets.
 
 ## Design choices
 
@@ -13,7 +13,7 @@ Two alternatives were considered: routing every service through SMTP, which fail
 ## Directory structure
 
 ```text
-flowmail-smtp.php               Plugin entry point and activation hook
+techbyit-smtp.php               Plugin entry point and activation hook
 composer.json                   PSR-4 autoload and PHP test tooling
 src/Plugin.php                  Hook registration
 src/Database/Installer.php      Versioned dbDelta migration
@@ -60,9 +60,9 @@ Table name is `$wpdb->prefix . 'mailflow_smtp_logs'` (`wp_mailflow_smtp_logs` fo
 
 Planned logging must exclude credentials, authorization headers, cookies, and OAuth data. The planned body capture setting defaults off; when off, retry/resend is unavailable for that log. When on, body and recipient access must be restricted to `manage_options`; retention and purge settings must bound storage. Attachments will not be persisted, so retries requiring an attachment must be disabled with a clear reason. Mail logs can contain private content; the future UI must show it only after an explicit details action.
 
-## REST API (`flowmail-smtp/v1`)
+## REST API (`techbyit-smtp/v1`)
 
-The earlier `mailflow-smtp/v1` REST namespace remains registered for existing integrations. New admin requests use `flowmail-smtp/v1`. Stored `mailflow_smtp_*` options, the log table name, encryption context, and `mailflow_smtp_*` hooks remain unchanged to preserve existing data and integrations. PHP classes now use the `FlowMailSMTP` namespace and constants use the `FLOWMAIL_SMTP_` prefix; integrations referencing the former PHP names must update them.
+The earlier `flowmail-smtp/v1` and `mailflow-smtp/v1` REST namespaces remain registered for existing integrations. New admin requests use `techbyit-smtp/v1`. Stored `mailflow_smtp_*` options, the log table name, encryption context, and `mailflow_smtp_*` hooks remain unchanged to preserve existing data and integrations. PHP classes now use the `TechByIt\SMTP` namespace and constants use the `TECHBYIT_SMTP_` prefix; integrations referencing the former PHP names must update them.
 
 The `/bootstrap` endpoint requires `manage_options` and uses WordPress cookie authentication with `X-WP-Nonce` in the admin app. Implemented endpoints follow the same permission model. Each implemented route has an explicit permission callback and validated arguments. Responses omit secrets. Routes for OAuth, dashboard statistics, logs, retry, and resend in the table below are planned only.
 

@@ -1,20 +1,20 @@
 <?php
-namespace FlowMailSMTP;
+namespace TechByIt\SMTP;
 
-use FlowMailSMTP\Admin\AdminPage;
-use FlowMailSMTP\Mail\MailManager;
-use FlowMailSMTP\Mail\PHPMailerConfigurator;
-use FlowMailSMTP\Mail\TestMailService;
-use FlowMailSMTP\Mail\WordPressMailIntegration;
-use FlowMailSMTP\Providers\ProviderManager;
-use FlowMailSMTP\Providers\ProviderRegistry;
-use FlowMailSMTP\Rest\BootstrapController;
-use FlowMailSMTP\Rest\ProviderController;
-use FlowMailSMTP\Rest\SettingsController;
-use FlowMailSMTP\Rest\TestMailController;
-use FlowMailSMTP\Settings\CredentialEncryption;
-use FlowMailSMTP\Settings\ProviderSettingsRepository;
-use FlowMailSMTP\Settings\SettingsRepository;
+use TechByIt\SMTP\Admin\AdminPage;
+use TechByIt\SMTP\Mail\MailManager;
+use TechByIt\SMTP\Mail\PHPMailerConfigurator;
+use TechByIt\SMTP\Mail\TestMailService;
+use TechByIt\SMTP\Mail\WordPressMailIntegration;
+use TechByIt\SMTP\Providers\ProviderManager;
+use TechByIt\SMTP\Providers\ProviderRegistry;
+use TechByIt\SMTP\Rest\BootstrapController;
+use TechByIt\SMTP\Rest\ProviderController;
+use TechByIt\SMTP\Rest\SettingsController;
+use TechByIt\SMTP\Rest\TestMailController;
+use TechByIt\SMTP\Settings\CredentialEncryption;
+use TechByIt\SMTP\Settings\ProviderSettingsRepository;
+use TechByIt\SMTP\Settings\SettingsRepository;
 
 final class Plugin {
 	public function register(): void {

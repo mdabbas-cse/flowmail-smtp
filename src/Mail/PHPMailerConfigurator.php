@@ -1,5 +1,5 @@
 <?php
-namespace FlowMailSMTP\Mail;
+namespace TechByIt\SMTP\Mail;
 
 use PHPMailer\PHPMailer\PHPMailer;
 

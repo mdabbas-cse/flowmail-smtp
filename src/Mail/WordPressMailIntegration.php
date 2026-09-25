@@ -1,7 +1,7 @@
 <?php
-namespace FlowMailSMTP\Mail;
+namespace TechByIt\SMTP\Mail;
 
-use FlowMailSMTP\Settings\SettingsRepository;
+use TechByIt\SMTP\Settings\SettingsRepository;
 
 final class WordPressMailIntegration {
 	private $manager;
