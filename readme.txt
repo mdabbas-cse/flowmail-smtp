@@ -3,7 +3,7 @@ Tags: smtp, email, mailer, notifications
 Requires at least: 6.2
 Requires PHP: 7.4
 Tested up to: 7.1
-Stable tag: 1.0.2
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -81,11 +81,9 @@ Source code and build instructions: https://github.com/mdabbas-cse/techbyit-smtp
 
 == Changelog ==
 
-= 1.0.2 =
+= 1.0.0 =
 
 * Included the Composer manifest and public source link in the release documentation.
-
-= 1.0.1 =
 
 * Renamed the plugin to TechByIt SMTP and updated its public slug and text domain.
 * Kept existing site settings and integration hooks compatible.
